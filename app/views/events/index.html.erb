@@ -1,1 +1,23 @@
-<h1> Nos events </h1>
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Our events</h1>
+          <p>Here all the events of Eventbrite! look at them and join!</p>
+          <p><a class="btn btn-primary btn-lg" <%= link_to "Create your event", new_event_path%></a></p>
+        </div>
+      </div>
+
+<main role="main">
+  <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <% @event.each do |n| %>
+          <div class="col-md-4">
+            <h2 class="mb-1"><%= n.title%></h2>
+            <p class="mb-1"><%= n.location%></p><br>
+            <p><a class="btn btn-secondary" <%= link_to "Look at this event", event_path(n.id)%></a></p>
+          </div>
+          <% end %>
+
+        <hr>
+      </div> <!-- /container -->
+  </main>
